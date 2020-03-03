@@ -5,6 +5,16 @@ body{
     margin: 0;
 }
 
+.title_bar{
+    width: 100%;
+}
+
+#title{
+}
+
+#time{
+}
+
 ul.nav{
     list-style-type: none;
     background-color:  #0d0d0d;
@@ -50,9 +60,10 @@ ul.nav li a{
 
 .cow_name{
     grid-area: 1 / 1 / 1 / 7;
+    text-align: center;
 }
 
-.envir_temp{
+.ambient_temp{
     grid-area: 2 / 1 / 2 / 4;
 }
 
