@@ -1,56 +1,120 @@
-var cow1= new Vue({
-    el: '#cow1',
+var last_update_time = new Vue({
+    el: '#last_update_time',
     data: {
-        name: "cow1",
-        ID: 1,
-        time: '2020-02-28 15-01-43',
-        Ambient: 12,
-        Object: 12,
-        Walk: 1,
-        Ruminating: 4,
-        Eat_time: 2
+        time: "2020-02-28 15-01-43"
     }
 })
 
-
-var cow2 = new Vue({
-    el: '#cow2',
-    data: {
-        name: "cow2",
-        ID: 2,
-        time: '2020-03-01 17-01-23',
-        Ambient: 24,
-        Object: 24,
-        Walk: 2,
-        Ruminating: 5,
-        Eat_time: 1
-    }
+Vue.component('cow_card', {
+    props: [
+        'name',
+        'cid',
+        'ambient',
+        'object',
+        'walk',
+        'ruminating',
+        'eat_time'
+    ],
+    template: `
+        <div class="w3-half w3-panel">
+            <div class="cow_block w3-card w3-padding w3-round-large">
+                <div class="cow_name w3-section w3-row">
+                    <h3>CID: {{cid}}</h3>
+                </div>
+                <div class="w3-row-padding w3-section">
+                    <div class="ambient_temp w3-col l6 m6 s6">
+                        Ambient:<br />
+                        {{ambient}} ℃
+                    </div>
+                    <div class="cow_temp w3-col l6 m6 s6">
+                        Cow: <br />
+                        {{object}} ℃
+                    </div>
+                </div>
+                <div class="w3-row-padding w3-section">
+                    <div class="cow_walk w3-third">
+                        Walk: <br />
+                        {{walk}}
+                    </div>
+                    <div class="cow_RU w3-third">
+                        Ruminating: <br />
+                        {{ruminating}}
+                    </div>
+                    <div class="cow_head w3-third">
+                        Eat_time: <br />
+                        {{eat_time}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    `
 })
 
-var cow3 = new Vue({
-    el: '#cow3',
+var cow_list = new Vue({
+    el: '#cow_list',
     data: {
-        name: "cow3",
-        ID: 3,
-        time: '2020-03-04 22-26-55',
-        Ambient: 33,
-        Object: 33,
-        Walk: 3,
-        Ruminating: 8,
-        Eat_time: 2
-    }
-})
+        cows: [
+            {
+                name: "cow1",
+                cid: 1,
+                time: '2020-02-28 15-01-43',
+                Ambient: 12,
+                object: 12,
+                walk: 1,
+                ruminating: 4,
+                eat_time: 2
+            },
+            {
+                name: "cow2",
+                cid: 2,
+                time: '2020-03-01 17-01-23',
+                ambient: 24,
+                object: 24,
+                walk: 2,
+                ruminating: 5,
+                eat_time: 1
+            },
+            {
+                name: "cow3",
+                cid: 3,
+                time: '2020-03-04 22-26-55',
+                ambient: 33,
+                object: 33,
+                walk: 3,
+                ruminating: 8,
+                eat_time: 2
+            },
+            {
+                name: "cow4",
+                cid: 4,
+                time: '2020-03-04 22-26-55',
+                ambient: 215,
+                object: 34,
+                walk: 9,
+                ruminating: 3,
+                eat_time: 1
+            },
+            {
+                name: "cow5",
+                cid: 5,
+                time: '2020-02-27 12-44-53',
+                ambient: 22,
+                object: 22,
+                walk: 7,
+                ruminating: 3,
+                eat_time: 8
+            },
+            {
+                name: "cow6",
+                cid: 6,
+                time: '2020-02-25 14-44-55',
+                ambient: 23,
+                object: 23,
+                walk: 8,
+                ruminating: 6,
+                eat_time: 4
+            }
+        ]
 
-var cow4 = new Vue({
-    el: '#cow4',
-    data: {
-        name: "cow4",
-        ID: 4,
-        time: '2020-03-04 22-26-55',
-        Ambient: 215,
-        Object: 34,
-        Walk: 9,
-        Ruminating: 3,
-        Eat_time: 1
     }
 })

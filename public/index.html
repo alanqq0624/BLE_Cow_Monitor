@@ -20,7 +20,7 @@
         <div class="w3-left-align">
             <h1 id="title">Cow Monitor</h1>
         </div>
-        <div class="w3-right-align"><a id="time">Last Update: 2020/02/02 20:20:20</a></div>
+        <div id="last_update_time" class="w3-right-align">Last Update: {{time}}</div>
     </div>
     <div class="w3-bar w3-black">
         <a href="#" class="w3-bar-item w3-button w3-mobile">Main Board</a>
@@ -28,129 +28,11 @@
         <a href="#" class="w3-bar-item w3-button w3-mobile">About</a>
     </div>
     <div class="content w3-row-padding w3-panel">
-        <div id="cow1" class="w3-half w3-panel">
-            <div class="cow_block w3-card w3-padding w3-round-large">
-                <div class="cow_name w3-section w3-row">
-                    <h3>ID: {{ID}}</h3>
-                </div>
-                <div class="w3-row-padding w3-section">
-                    <div class="ambient_temp w3-col l6 m6 s6">
-                        Ambient:<br />
-                        {{Ambient}} ℃
-                    </div>
-                    <div class="cow_temp w3-col l6 m6 s6">
-                        Cow: <br />
-                        {{Object}} ℃
-                    </div>
-                </div>
-                <div class="w3-row-padding w3-section">
-                    <div class="cow_walk w3-third">
-                        Walk: <br />
-                        {{Walk}}
-                    </div>
-                    <div class="cow_RU w3-third">
-                        Ruminating: <br />
-                        {{Ruminating}}
-                    </div>
-                    <div class="cow_head w3-third">
-                        Eat_time: <br />
-                        {{Eat_time}}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="cow2" class="w3-half w3-panel">
-            <div class="cow_block w3-card w3-padding w3-round-large">
-                <div class="cow_name w3-section w3-row">
-                    <h3>ID: {{ID}}</h3>
-                </div>
-                <div class="w3-row-padding w3-section">
-                    <div class="ambient_temp w3-col l6 m6 s6">
-                        Ambient:<br />
-                        {{Ambient}} ℃
-                    </div>
-                    <div class="cow_temp w3-col l6 m6 s6">
-                        Cow: <br />
-                        {{Object}} ℃
-                    </div>
-                </div>
-                <div class="w3-row-padding w3-section">
-                    <div class="cow_walk w3-third">
-                        Walk: <br />
-                        {{Walk}}
-                    </div>
-                    <div class="cow_RU w3-third">
-                        Ruminating: <br />
-                        {{Ruminating}}
-                    </div>
-                    <div class="cow_head w3-third">
-                        Eat_time: <br />
-                        {{Eat_time}}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="cow3" class="w3-half w3-panel">
-            <div class="cow_block w3-card w3-padding w3-round-large">
-                <div class="cow_name w3-section w3-row">
-                    <h3>ID: {{ID}}</h3>
-                </div>
-                <div class="w3-row-padding w3-section">
-                    <div class="ambient_temp w3-col l6 m6 s6">
-                        Ambient:<br />
-                        {{Ambient}} ℃
-                    </div>
-                    <div class="cow_temp w3-col l6 m6 s6">
-                        Cow: <br />
-                        {{Object}} ℃
-                    </div>
-                </div>
-                <div class="w3-row-padding w3-section">
-                    <div class="cow_walk w3-third">
-                        Walk: <br />
-                        {{Walk}}
-                    </div>
-                    <div class="cow_RU w3-third">
-                        Ruminating: <br />
-                        {{Ruminating}}
-                    </div>
-                    <div class="cow_head w3-third">
-                        Eat_time: <br />
-                        {{Eat_time}}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="cow4" class="w3-half w3-panel">
-            <div class="cow_block w3-card w3-padding w3-round-large">
-                <div class="cow_name w3-section w3-row">
-                    <h3>ID: {{ID}}</h3>
-                </div>
-                <div class="w3-row-padding w3-section">
-                    <div class="ambient_temp w3-col l6 m6 s6">
-                        Ambient:<br />
-                        {{Ambient}} ℃
-                    </div>
-                    <div class="cow_temp w3-col l6 m6 s6">
-                        Cow: <br />
-                        {{Object}} ℃
-                    </div>
-                </div>
-                <div class="w3-row-padding w3-section">
-                    <div class="cow_walk w3-third">
-                        Walk: <br />
-                        {{Walk}}
-                    </div>
-                    <div class="cow_RU w3-third">
-                        Ruminating: <br />
-                        {{Ruminating}}
-                    </div>
-                    <div class="cow_head w3-third">
-                        Eat_time: <br />
-                        {{Eat_time}}
-                    </div>
-                </div>
-            </div>
+        <div id="cow_list">
+            <cow_card v-for="cow in cows" v-bind:key="cow.cid" v-bind:cid='cow.cid' v-bind:ambient='cow.ambient'
+                v-bind:object='cow.object' v-bind:walk='cow.walk' v-bind:ruminating='cow.ruminating'
+                v-bind:eat_time='cow.eat_time'>
+            </cow_card>
         </div>
     </div>
 </body>
