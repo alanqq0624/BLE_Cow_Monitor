@@ -58,7 +58,7 @@ var cow_list = new Vue({
                 name: "cow1",
                 cid: 1,
                 time: '2020-02-28 15-01-43',
-                Ambient: 12,
+                ambient: 12,
                 object: 12,
                 walk: 1,
                 ruminating: 4,
