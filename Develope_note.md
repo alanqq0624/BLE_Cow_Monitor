@@ -7,6 +7,7 @@
   - setTimeout(function(){}, milliseconds) -> (只执行函数一次)
 - Why not just directly use setInterval(): [WHY](https://segmentfault.com/a/1190000017246671)
 - A better solution: 運用Vue的狀態stage[Link](https://blog.csdn.net/wanghui374/article/details/97911938)
+- EXAMPLE: [link](https://www.cnblogs.com/jin-zhe/p/10001236.html)
 
 > Maybe??
 

@@ -89,6 +89,9 @@ var cow_list = new Vue({
             })
         }
     },
+    created(){
+        this.update_data()
+    },
     mounted() {
         this.timer = setInterval(this.update_data, 5000);
     },
