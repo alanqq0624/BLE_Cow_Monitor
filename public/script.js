@@ -60,7 +60,7 @@ Vue.component('cow_card', {
     `
 })
 
-var cow_data = [
+var cow_data_default = [
     {
         name: "cow1",
         cid: 1,
@@ -70,62 +70,21 @@ var cow_data = [
         walk: 1,
         ruminating: 4,
         eat_time: 2
-    },
-    {
-        name: "cow2",
-        cid: 2,
-        time: '2020-03-01 17-01-23',
-        ambient: 24,
-        object: 24,
-        walk: 2,
-        ruminating: 5,
-        eat_time: 1
-    },
-    {
-        name: "cow3",
-        cid: 3,
-        time: '2020-03-04 22-26-55',
-        ambient: 33,
-        object: 33,
-        walk: 3,
-        ruminating: 8,
-        eat_time: 2
-    },
-    {
-        name: "cow4",
-        cid: 4,
-        time: '2020-03-04 22-26-55',
-        ambient: 215,
-        object: 34,
-        walk: 9,
-        ruminating: 3,
-        eat_time: 1
-    },
-    {
-        name: "cow5",
-        cid: 5,
-        time: '2020-02-27 12-44-53',
-        ambient: 22,
-        object: 22,
-        walk: 7,
-        ruminating: 3,
-        eat_time: 8
-    },
-    {
-        name: "cow6",
-        cid: 6,
-        time: '2020-02-25 14-44-55',
-        ambient: 23,
-        object: 23,
-        walk: 8,
-        ruminating: 6,
-        eat_time: 4
     }
 ]
 
 var cow_list = new Vue({
     el: '#cow_list',
     data: {
-        cows: cow_data
+        cows: cow_data_default
+    },
+    mounted() {
+        console.log("Start request Data from server");
+        axios.post('/').then(response => {
+            console.log(response)
+            this.cows = response.data
+        }).catch(error => {
+            console.log(error)
+        })
     }
 })
