@@ -35,20 +35,20 @@ Vue.component('cow_card', {
                         </div>
                     </div>
                 </div>
-                <div class="w3-row-padding w3-section">
-                    <div class="w3-third w3-section">
+                <div class="w3-row-padding">
+                    <div class="w3-col l4 m12 s12 w3-section">
                         <div class="cow_walk w3-padding w3-round-large w3-theme-d2">
                             Walk: <br />
                             {{walk}}
                         </div>
                     </div>
-                    <div class="w3-third w3-section">
+                    <div class="w3-col l4 m12 s12 w3-section">
                         <div class="cow_RU w3-padding w3-round-large w3-theme-d2">
                             Ruminating: <br />
                             {{ruminating}}
                         </div>
                     </div>
-                    <div class="w3-third w3-section">
+                    <div class="w3-col l4 m12 s12 w3-section">
                         <div class="cow_head w3-padding w3-round-large w3-theme-d2">
                             Eat_time: <br />
                             {{eat_time}}
