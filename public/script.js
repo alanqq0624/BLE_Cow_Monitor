@@ -78,13 +78,21 @@ var cow_list = new Vue({
     data: {
         cows: cow_data_default
     },
+    methods: {
+        update_data() {
+            console.log("Start request Data from server");
+            axios.post('/').then(response => {
+                console.log(response)
+                this.cows = response.data
+            }).catch(error => {
+                console.log(error)
+            })
+        }
+    },
     mounted() {
-        console.log("Start request Data from server");
-        axios.post('/').then(response => {
-            console.log(response)
-            this.cows = response.data
-        }).catch(error => {
-            console.log(error)
-        })
+        this.timer = setInterval(this.update_data, 5000);
+    },
+    beforeDestroy() {
+        clearInterval(this.timer);
     }
 })
