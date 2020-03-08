@@ -16,66 +16,40 @@ app.listen(port_express, function () {
     console.log('Example app listening on port ' + port_express + ' !');
 });
 
+// // connect to MongoDB
+// var MongoDB_Client = require('mongodb').MongoClient
+// var DB_url = "mongodb://localhost:40020";
+
+// init date
+var d = new Date()
+
 var cow_data = [
     {
-        name: "cow1",
-        cid: 1,
-        time: '2020-02-28 15-01-43',
-        ambient: 12,
-        object: 12,
-        walk: 1,
-        ruminating: 4,
-        eat_time: 2
+        name: 1,
+        Time: '2020-02-28 15-01-43',
+        Ambient: 12,
+        Object: 12,
+        Walk: 1,
+        Ruminating: 4,
+        Eat_time: 2
     },
     {
-        name: "cow2",
-        cid: 2,
-        time: '2020-03-01 17-01-23',
-        ambient: 24,
-        object: 24,
-        walk: 2,
-        ruminating: 5,
-        eat_time: 1
+        name: 2,
+        Time: '2020-03-01 17-01-23',
+        Ambient: 24,
+        Object: 24,
+        Walk: 2,
+        Ruminating: 5,
+        Eat_time: 1
     },
     {
-        name: "cow3",
-        cid: 3,
-        time: '2020-03-04 22-26-55',
-        ambient: 33,
-        object: 33,
-        walk: 3,
-        ruminating: 8,
-        eat_time: 2
-    },
-    {
-        name: "cow4",
-        cid: 4,
-        time: '2020-03-04 22-26-55',
-        ambient: 215,
-        object: 34,
-        walk: 9,
-        ruminating: 3,
-        eat_time: 1
-    },
-    {
-        name: "cow5",
-        cid: 5,
-        time: '2020-02-27 12-44-53',
-        ambient: 22,
-        object: 22,
-        walk: 7,
-        ruminating: 3,
-        eat_time: 8
-    },
-    {
-        name: "cow6",
-        cid: 6,
-        time: '2020-02-25 14-44-55',
-        ambient: 23,
-        object: 23,
-        walk: 8,
-        ruminating: 6,
-        eat_time: 4
+        name: 3,
+        Time: '2020-03-04 22-26-55',
+        Ambient: 33,
+        Object: 33,
+        Walk: 3,
+        Ruminating: 8,
+        Eat_time: 2
     }
 ]
 
@@ -83,12 +57,19 @@ var cow_data = [
 app.post('/upload', function (req, res) {
     // TODO: receive data
     res.send('data receive!!');
-    console.log(res);
+    console.log(req.body);
     // TODO: send into DB
+    cow_data = [req.body]
 });
 
 app.post('/', function (req, res) {
     // TODO: send data to the front page
-    console.log("Request receive!");
+    console.log("Request data receive!");
+    res.send(cow_data);
+});
+
+app.post('/time', function (req, res) {
+    // TODO: send data to the front page
+    console.log("Request time receive!");
     res.send(cow_data);
 });

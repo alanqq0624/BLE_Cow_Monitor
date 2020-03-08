@@ -1,14 +1,6 @@
-var last_update_time = new Vue({
-    el: '#last_update_time',
-    data: {
-        time: "2020-02-28 15-01-43"
-    }
-})
-
 Vue.component('cow_card', {
     props: [
         'name',
-        'cid',
         'ambient',
         'object',
         'walk',
@@ -19,7 +11,7 @@ Vue.component('cow_card', {
         <div class="w3-half w3-panel">
             <div class="cow_block w3-card w3-padding w3-round w3-theme-l3">
                 <div class="cow_name w3-section w3-row w3-padding w3-round-large w3-theme-d5">
-                    <h3>CID: {{cid}}</h3>
+                    <h3>Name: {{name}}</h3>
                 </div>
                 <div class="w3-row-padding w3-section">
                     <div class="w3-col l6 m6 s6">
@@ -62,14 +54,13 @@ Vue.component('cow_card', {
 
 var cow_data_default = [
     {
-        name: "cow1",
-        cid: 1,
-        time: '2020-02-28 15-01-43',
-        ambient: 12,
-        object: 12,
-        walk: 1,
-        ruminating: 4,
-        eat_time: 2
+        name: 1,
+        Time: '2020-02-18 10-01-00',
+        Ambient: 12,
+        Object: 12,
+        Walk: 1,
+        Ruminating: 4,
+        Eat_time: 2
     }
 ]
 
@@ -89,11 +80,38 @@ var cow_list = new Vue({
             })
         }
     },
-    created(){
+    created() {
         this.update_data()
     },
     mounted() {
         this.timer = setInterval(this.update_data, 5000);
+    },
+    beforeDestroy() {
+        clearInterval(this.timer);
+    }
+})
+
+var last_update_time = new Vue({
+    el: '#last_update_time',
+    data: {
+        time: cow_data_default[0].Time
+    },
+    methods: {
+        update_time() {
+            console.log("Start request time from server");
+            axios.post('/time').then(response => {
+                console.log(response.data)
+                this.time = response.data[0].Time
+            }).catch(error => {
+                console.log(error)
+            })
+        }
+    },
+    created() {
+        this.update_time()
+    },
+    mounted() {
+        this.timer = setInterval(this.update_time, 5000);
     },
     beforeDestroy() {
         clearInterval(this.timer);

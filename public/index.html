@@ -30,9 +30,9 @@
     </div>
     <div class="content w3-row-padding w3-panel">
         <div id="cow_list">
-            <cow_card v-for="cow in cows" v-bind:key="cow.cid" v-bind:cid='cow.cid' v-bind:ambient='cow.ambient'
-                v-bind:object='cow.object' v-bind:walk='cow.walk' v-bind:ruminating='cow.ruminating'
-                v-bind:eat_time='cow.eat_time'>
+            <cow_card v-for="cow in cows" v-bind:key="cow.name" v-bind:name='cow.name' v-bind:ambient='cow.Ambient'
+                v-bind:object='cow.Object' v-bind:walk='cow.Walk' v-bind:ruminating='cow.Ruminating'
+                v-bind:eat_time='cow.Eat_time'>
             </cow_card>
         </div>
     </div>
