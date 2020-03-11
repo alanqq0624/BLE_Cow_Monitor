@@ -27,8 +27,8 @@ var cow_data = [
     {
         name: 1,
         Time: '2020-02-28 15-01-43',
-        Ambient: 12,
-        Object: 12,
+        Ambient: 25,
+        Object: 36,
         Walk: 1,
         Ruminating: 4,
         Eat_time: 2
@@ -37,7 +37,7 @@ var cow_data = [
         name: 2,
         Time: '2020-03-01 17-01-23',
         Ambient: 24,
-        Object: 24,
+        Object: 36.5,
         Walk: 2,
         Ruminating: 5,
         Eat_time: 1
@@ -45,8 +45,8 @@ var cow_data = [
     {
         name: 3,
         Time: '2020-03-04 22-26-55',
-        Ambient: 33,
-        Object: 33,
+        Ambient: 24,
+        Object: 36.3,
         Walk: 3,
         Ruminating: 8,
         Eat_time: 2
